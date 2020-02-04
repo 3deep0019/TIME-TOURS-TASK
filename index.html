@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Input box</title>
+</head>
+<body>
+	<div >
+		<p >Name &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<input id="Fname" type="text" name="Name" oninput="myName()" placeholder="Name"></p><br>
+		<p >Qualification &nbsp &nbsp <input id="Fqu" type="text" name="Qualification" oninput="myQua()" placeholder="Qualification"></p><br>
+		<p >Hobbies &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<input id="Fhobby" type="text" name="Hobbies" oninput="myHobby()"  placeholder="Add upto Three Hobbies"></p>
+		<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<button onclick="AddHobbies()"> + Add Hobbies</button></p>
+	</div>
+	<div>
+		<p id="name"></p>
+		<p id="qualification"></p>
+		<p id="hobbies"></p>
+		<p id="sign"></p>	
+	</div>
+	<script>
+		var a = new Array();
+		var i = 0
+		function myName(){
+			var x = document.getElementById('Fname').value;
+			document.getElementById('name').innerHTML = "I, " + x +", would like to apply for an internship at your organisation.";
+			document.getElementById('sign').innerHTML = "Thanking You,<br> Your Sincerely <br>"  + x;
+
+		}
+		function myQua(){
+			var y = document.getElementById('Fqu').value;
+			document.getElementById('qualification').innerHTML = "My Qualification is " + y + ".";
+		}
+		function myHobby(){
+			var z = document.getElementById('Fhobby').value;
+			if(a.length===0){
+			document.getElementById('hobbies').innerHTML = "My hobbies are " + z + ".";
+		}else if(a.length===1){
+			document.getElementById('hobbies').innerHTML = "My hobbies are " + a[0] + "," + z + ".";
+		}
+		else if(a.length===2){
+			document.getElementById('hobbies').innerHTML = "My hobbies are " + a[0] + "," + a[1] + " & "+ z +".";
+		}
+		}
+		
+		function AddHobbies(){
+			a[i] = document.getElementById('Fhobby').value;
+			i++;
+			document.getElementById('Fhobby').value = "";
+		}
+		
+		
+	</script>
+	
+</body>
+</html>
